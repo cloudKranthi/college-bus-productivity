@@ -4,7 +4,7 @@
   "description": "backend project of tracking daily college bus productivity with login system",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
