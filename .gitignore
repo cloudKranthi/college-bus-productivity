@@ -1,0 +1,13 @@
+# Dependency Directory
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Environment Variables
+# NEVER commit files containing sensitive information (like API keys/passwords)
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,26 @@
+{
+  "name": "college-bus-productivity",
+  "version": "1.0.0",
+  "description": "backend project of tracking daily college bus productivity with login system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudKranthi/college-bus-productivity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/cloudKranthi/college-bus-productivity/issues"
+  },
+  "homepage": "https://github.com/cloudKranthi/college-bus-productivity#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
