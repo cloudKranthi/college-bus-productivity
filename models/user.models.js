@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken')
 const userSchema = new mongoose.Schema({
     username:{
         type:String,
@@ -23,4 +24,15 @@ if(this.isModified("password")){
     this.password = bcrypt.hash(this.password,10);
 }})
 
+userSchema.methods.generateAccessToken = function(){
+    const userId = this._id;
+     const token =jwt.sign({
+        id:userId,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    {expiresIn:process.env.ACCESS_TOKEN_EXPIRY}
+    )
+    return token;
+
+}
 module.exports = mongoose.model('User',userSchema)

@@ -1,4 +1,4 @@
-const user = require('../models/user.models')
+const User = require('../models/user.models')
 const cloudinary = require('cloudinary').v2
 const uploadimage= async(req,res)=>{
     try{
@@ -14,8 +14,7 @@ const registerUser = async(req,res)=>{
         const newUser = new User({
             username:req.body.username,
             email:req.body.email,
-            password:req.body.password,
-            if(req.body.avatar)
+            password:req.body.password
         })
 
     }catch(error){
