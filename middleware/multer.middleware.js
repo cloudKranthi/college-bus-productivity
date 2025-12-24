@@ -12,7 +12,7 @@ filename:(req,file,cb)=>{
     const extname =`${Date.now()}-${Math.round(Math.random()*1e9)}${ext}`
     cb(null,extname)
 }})
-const filefilter = 
+const fileFilter = 
     (req,file,cb)=>{
         const ext=path.extname(file.originalname).slice(1)
     if((ext !='png')&& (ext!='jpg')){

@@ -16,9 +16,9 @@ const registerUser = async(req,res)=>{
             email:req.body.email,
             password:req.body.password
         })
-
+     return res.status(200).json({message:"User registered succesfully"})
     }catch(error){
         console.log(error)
     }
 }
-module.exports = uploadimage;
+module.exports = uploadimage,registerUser;

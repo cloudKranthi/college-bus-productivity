@@ -35,4 +35,15 @@ userSchema.methods.generateAccessToken = function(){
     return token;
 
 }
+userSchema.methods.generateRefreshToken = function(){
+    const userId = this._id;
+     const token =jwt.sign({
+        id:userId,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    {expiresIn:process.env.REFRESH_TOKEN_EXPIRY}
+    )
+    return token;
+
+}
 module.exports = mongoose.model('User',userSchema)
