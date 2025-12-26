@@ -64,8 +64,17 @@ const refreshController = asyncHandler(async(req,res)=>{
         return res.status(401).json({message:'unauthorized'})
     }
     const {accessToken,refreshToken:newRefreshToken} = generate_access_refresh_token(user);
+    user.refreshToken = newRefreshToken;
+    await user.save();
     const options={httpOnly:true,samesite:'None',secure:false}
     return res.status(200).cookie('accessToken',accessToken,{...options}).cookie('refreshToken',newRefreshToken,{...options}).json({message:'Token refreshed Succesfully'})
 
 })
-module.exports = {uploadimage,registerUser,loginUser,refreshController};
+const logoutUser = asyncHandler(async(req,res)=>{
+    const user = await User.findById(req.user._id)
+    user.refreshToken = null;
+    const options= {httpOnly:true,secure:false,samesite:'None',expires:new Date(0)}
+    await user.save()
+    return res.cookie('refreshToken','',options).cookie('accessToken','',options).status(200).json({message:'User loggedOut succesfully'})
+})
+module.exports = {uploadimage,registerUser,loginUser,refreshController,logoutUser};
